@@ -120,9 +120,12 @@
 
     <build>
         <resources>
+            <!-- resource标识了不同环境下需要打包哪些配置文件。-->
             <resource>
+                <!-- 标识配置文件所在的目录 -->
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
+                <!-- 构建时将这些配置文件全都排除掉 -->
                 <excludes>
                     <exclude>application.properties</exclude>
                     <exclude>application-dev.properties</exclude>
@@ -134,7 +137,9 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <!-- 标识构建时所需要的配置文件 -->
                     <include>application.properties</include>
+                    <!-- ${profileActive}这个值会在maven构建时传入 -->
                     <include>application-${profileActive}.properties</include>
                 </includes>
             </resource>
